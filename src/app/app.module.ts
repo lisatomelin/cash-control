@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './views/dashboard/dashboard.module';
-import { TransacoesComponent } from './views/transacoes/transacoes.component';
+import { TransacoesFormsComponent } from './views/transacoes/transacoesForms/transacoesForms.component';
 import { provideHttpClient } from '@angular/common/http';
 
 

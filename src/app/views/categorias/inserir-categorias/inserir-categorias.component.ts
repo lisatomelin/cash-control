@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoriasService } from '../services/categorias.service';
 import { Categoria } from '../models/categoria';
 import { NotificationService } from 'src/app/core/services/notifications.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inserir-categorias',

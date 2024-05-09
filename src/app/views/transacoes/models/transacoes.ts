@@ -3,8 +3,8 @@ export interface Transacoes {
     descricao: string;
     valor: number;
     dataTransacao: Date;
-    tipotransacao: boolean;
-    //categoriaId: number;
+    tipoTransacao: boolean;
+    categoriaId: number;
     //categoria?: Categoria;
 
 }

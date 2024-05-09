@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'categorias',
     loadChildren: () => import('./views/categorias/categorias.module').then ((m) => m.CategoriasModule)
   },
+  {
+    path: 'transacoes',
+    loadChildren: () => import('./views/transacoes/transacoes.module').then((m) => m.TransacoesModule )
+  }
 ];
 
 @NgModule({

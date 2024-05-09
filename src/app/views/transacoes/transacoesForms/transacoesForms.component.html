@@ -1,0 +1,66 @@
+<div class="row justify-content-center align-items-center mt-2">
+  <div class="col-md-6">
+    <form [formGroup]="form!" (ngSubmit)="gravar()" class="d-grid mt-3">
+      <section class="transacoesform">
+        <h1 class="fs-2">Adicionar Transação</h1>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Descrição</mat-label>
+          <input type="text" formControlName="descricao" matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Valor</mat-label>
+          <input type="text" formControlName="valor" matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Data Transação</mat-label>
+          <input type="datetime" formControlName="dataTransacao" matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Categoria</mat-label>
+          <mat-select formControlName="categoriaId">
+            <mat-option
+              *ngFor="let categoria of categorias$ | async"
+              [value]="categoria.id"
+            >
+              {{ categoria.titulo }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-card>
+          <mat-label appearance="outline">Tipo Transação</mat-label>
+
+          <mat-radio-group formControlName="tipoTransacao">
+            <mat-radio-button value="entrada">Entrada</mat-radio-button>
+            <mat-radio-button value="saida">Saída</mat-radio-button>
+          </mat-radio-group>
+        </mat-card>
+
+        <div class="d-flex justify-content-end gap-2 mt-5">
+          <button
+            type="submit"
+            class="py-3 px-5"
+            color="primary"
+            mat-raised-button
+          >
+            Salvar
+          </button>
+          <button
+            type="button"
+            routerLink="/dashboard"
+            class="py-3 px-5"
+            color="warn"
+            mat-stroked-button
+            type="button" (click)="handleCloseModal()"
+          >
+            Voltar
+          </button>
+        </div>
+      </section>
+    </form>
+  </div>
+</div>
