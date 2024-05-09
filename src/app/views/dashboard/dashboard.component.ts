@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Transacoes } from '../transacoes/models/transacoes';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { TransacoesFormsComponent } from '../transacoes/transacoesForms/transacoesForms.component';
+import { MatDialog } from '@angular/material/dialog';
+import { InserirTransacoesComponent } from '../transacoes/inserir-transacoes/inserir-transacoes.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit{
   }
 
   public handleOpenModal(): void {
-    this.dialogService.open(TransacoesFormsComponent, {
+    this.dialogService.open(InserirTransacoesComponent, {
       width: '50vw',
       maxHeight: '80vh',
     });

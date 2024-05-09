@@ -9,10 +9,10 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 
 @Component({
   selector: 'app-transacoes',
-  templateUrl: './transacoesForms.component.html',
+  templateUrl: './inserir-transacoes.component.html',
   styleUrls: [],
 })
-export class TransacoesFormsComponent implements OnInit {
+export class InserirTransacoesComponent implements OnInit {
   private dialogRefService = inject(MatDialogRef<DashboardComponent>);
   
   form?: FormGroup;

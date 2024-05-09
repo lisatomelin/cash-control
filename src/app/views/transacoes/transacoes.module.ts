@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { TransacoesFormsComponent } from './transacoesForms/transacoesForms.component';
+
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -13,10 +13,11 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { CategoriasModule } from '../categorias/categorias.module';
 import { MatSelectModule } from '@angular/material/select';
+import { InserirTransacoesComponent } from './inserir-transacoes/inserir-transacoes.component';
 
 
 @NgModule({
-  declarations: [TransacoesFormsComponent],
+  declarations: [InserirTransacoesComponent],
   imports: [
     CommonModule,
     CategoriasModule,
