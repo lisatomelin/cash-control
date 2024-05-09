@@ -1,11 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, map } from 'rxjs';
-import { Categoria } from '../../categorias/models/categoria';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notifications.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
+import { TransacoesService } from '../transacoes.service';
+import { Transacoes } from '../models/transacoes';
 
 @Component({
   selector: 'app-transacoes',
@@ -15,10 +15,10 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 export class InserirTransacoesComponent implements OnInit {
   private dialogRefService = inject(MatDialogRef<DashboardComponent>);
   
-  form?: FormGroup;
-  categorias$?: Observable<Categoria[]>;
+  form?: FormGroup;  
 
   constructor(
+    private transacoesService: TransacoesService,
     private notification: NotificationService,
     private fb: FormBuilder,
     private router: Router,
@@ -28,17 +28,31 @@ export class InserirTransacoesComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       descricao: ['', [Validators.required]],
-      valor: [''],
+      preco: [''],
       dataTransacao: [''],
-      tipoTransacao: ['Entrada'],
-      categoriaId: [undefined, [Validators.required]],
+      tipoTransacao: ['E'],
+      categoria: ['', [Validators.required]],
     });
 
-    this.categorias$ = this.route.data.pipe(
-      map((dados) => dados['categorias'])
-    );
   }
-  gravar() {}
+  gravar(): void  {
+    this.transacoesService.criar(this.form?.value).subscribe({
+      next: (res) => this.processarSucesso(res),
+      error: (err) => this.processarFalha(err),
+    });
+  }
+
+  processarSucesso(res: Transacoes) {
+    this.notification.sucesso(
+      `A transacão ${res.descricao} foi cadastrada com sucesso!`
+    );
+
+    this.router.navigate(['/transacoes', 'listar']);
+  }
+
+  processarFalha(err: any) {
+    this.notification.erro(err.message);
+  }
 
   public handleCloseModal(): void {
     this.dialogRefService.close();

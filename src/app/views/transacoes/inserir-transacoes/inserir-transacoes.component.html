@@ -10,33 +10,33 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Valor</mat-label>
-          <input type="text" formControlName="valor" matInput />
+          <mat-label>Preço</mat-label>
+          <input type="text" formControlName="preco" matInput />
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Data Transação</mat-label>
-          <input type="datetime" formControlName="dataTransacao" matInput />
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dataTransacao">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Categoria</mat-label>
-          <mat-select formControlName="categoriaId">
-            <mat-option
-              *ngFor="let categoria of categorias$ | async"
-              [value]="categoria.id"
-            >
-              {{ categoria.titulo }}
-            </mat-option>
-          </mat-select>
+          <input type="text" formControlName="categoria" matInput />
         </mat-form-field>
 
+        
         <mat-card>
           <mat-label appearance="outline">Tipo Transação</mat-label>
 
           <mat-radio-group formControlName="tipoTransacao">
-            <mat-radio-button value="entrada">Entrada</mat-radio-button>
-            <mat-radio-button value="saida">Saída</mat-radio-button>
+            <mat-radio-button value="Entrada">Entrada</mat-radio-button>
+            <mat-radio-button value="Saida">Saída</mat-radio-button>
           </mat-radio-group>
         </mat-card>
 

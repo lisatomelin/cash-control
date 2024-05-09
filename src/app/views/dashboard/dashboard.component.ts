@@ -6,22 +6,18 @@ import { InserirTransacoesComponent } from '../transacoes/inserir-transacoes/ins
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: []
+  styleUrls: [],
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
   private dialogService = inject(MatDialog);
-  
-  
-  transacoes: Transacoes[];
-  displayedColumns = ['descricao', 'valor', 'tipoTransacao', 'dataTransacao', 'categoria']
+  public transacoes: Transacoes[];
+  displayedColumns = ['descricao', 'preco', 'tipoTransacao', 'dataTransacao', 'categoria']
 
   constructor(){
     this.transacoes = []
-  }
+  } 
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   public handleOpenModal(): void {
     this.dialogService.open(InserirTransacoesComponent, {
@@ -29,10 +25,4 @@ export class DashboardComponent implements OnInit{
       maxHeight: '80vh',
     });
   }
-
-  
-
-
-  
-
 }

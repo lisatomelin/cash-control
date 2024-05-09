@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatGridListModule,
     MatDialogModule,
+    
   ],
 })
 export class DashboardModule {}
