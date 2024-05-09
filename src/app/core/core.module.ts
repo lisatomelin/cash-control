@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShellModule } from './shell/shell.module';
+import { NotificationsModule } from './services/notifications/notifications.module';
 
 
 
@@ -8,7 +9,8 @@ import { ShellModule } from './shell/shell.module';
   declarations: [],
   imports: [
     CommonModule,
-    ShellModule
+    ShellModule,
+    NotificationsModule
   ],
 
   exports: [ShellModule]

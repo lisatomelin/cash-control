@@ -6,11 +6,16 @@ const routes: Routes = [
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }
+  },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./views/categorias/categorias.module').then ((m) => m.CategoriasModule)
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

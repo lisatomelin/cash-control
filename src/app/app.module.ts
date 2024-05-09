@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './views/dashboard/dashboard.module';
 import { TransacoesComponent } from './views/transacoes/transacoes.component';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { TransacoesComponent } from './views/transacoes/transacoes.component';
     CoreModule,
     DashboardModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
