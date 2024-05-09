@@ -10,6 +10,8 @@ import { CoreModule } from './core/core.module';
 import { DashboardModule } from './views/dashboard/dashboard.module';
 
 import { provideHttpClient } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -25,11 +27,13 @@ import { provideHttpClient } from '@angular/common/http';
 
     MatButtonModule,
     MatCardModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
 
     CoreModule,
     DashboardModule
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

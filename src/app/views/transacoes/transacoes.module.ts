@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { InserirTransacoesComponent } from './inserir-transacoes/inserir-transacoes.component';
@@ -35,7 +35,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker'
     MatOptionModule,
     MatRadioModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
    
   ],
   providers: [TransacoesService]
