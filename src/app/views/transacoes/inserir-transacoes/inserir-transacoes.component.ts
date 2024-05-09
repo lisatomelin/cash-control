@@ -6,6 +6,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { TransacoesService } from '../transacoes.service';
 import { Transacoes } from '../models/transacoes';
+import { TipoTransacao } from '../models/tipoTransacao';
+
 
 @Component({
   selector: 'app-transacoes',
@@ -14,6 +16,8 @@ import { Transacoes } from '../models/transacoes';
 })
 export class InserirTransacoesComponent implements OnInit {
   private dialogRefService = inject(MatDialogRef<DashboardComponent>);
+  public tipoTransacaoEnum = TipoTransacao
+  
   
   form?: FormGroup;  
 
@@ -28,10 +32,10 @@ export class InserirTransacoesComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       descricao: ['', [Validators.required]],
-      preco: [''],
-      dataTransacao: [''],
-      tipoTransacao: ['E'],
-      categoria: ['', [Validators.required]],
+      preco: ['',[Validators.required]],
+      dataTransacao: ['',[Validators.required]],
+      tipoTransacao: [''],
+      categoria: ['',[Validators.required]],
     });
 
   }
