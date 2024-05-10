@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, map } from 'rxjs';
-import { Transacoes } from '../models/transacoes';
+import { Transacao, Transacoes } from '../models/transacoes';
+import { TransacoesService } from '../transacoes.service';
 
 @Component({
   selector: 'app-listar-transacoes',
   templateUrl: './listar-transacoes.component.html',
-  styleUrls: ['./listar-transacoes.component.scss'],
+  styleUrls: [],
 })
-export class ListarTransacoesComponent implements OnInit {
-  transacoes$?: Observable<Transacoes[]>;
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.transacoes$ = this.route.data.pipe(
-      map((dados) => dados['transacoes'])
-    );
+export class ListarTransacoesComponent  {
+  @Input() transactionsDatasInput: Transacao[];
+  
+  
+  ngOnInit(): void {    
+    this.transactionsDatasInput;
+    
+    
   }
+ 
+
+ 
 }

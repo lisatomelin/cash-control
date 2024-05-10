@@ -1,0 +1,26 @@
+<div class="container" style="margin-top: 20px;">
+    <div>
+        <table>
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Data de Transferência</th>
+                <th>Tipo de Transferência</th>
+                <th>Categoria</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transacao of transactionsDatasInput">
+                  <td>{{ transacao.id }}</td>
+                  <td>{{ transacao.descricao }}</td>
+                  <td>{{ transacao.preco }}</td>
+                  <td>{{ transacao.categoria }}</td>
+                  <td>{{ transacao.tipoTransacao }}</td>
+                  <td>{{ transacao.dataTransacao | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+                </tr>
+              </tbody>
+            </table>
+    
+   
+    

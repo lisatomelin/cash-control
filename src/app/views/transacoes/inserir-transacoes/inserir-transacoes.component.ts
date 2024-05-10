@@ -39,16 +39,16 @@ export class InserirTransacoesComponent implements OnInit {
     });
 
   }
-  gravar(): void  {
-    this.transacoesService.criar(this.form?.value).subscribe({
-      next: (res) => this.processarSucesso(res),
-      error: (err) => this.processarFalha(err),
-    });
-  }
+ // gravar(): void  {
+    //this.transacoesService.criar(this.form?.value).subscribe({
+     // next: (res) => this.processarSucesso(res),
+    //  error: (err) => this.processarFalha(err),
+   // });
+//  }
 
   processarSucesso(res: Transacoes) {
     this.notification.sucesso(
-      `A transacão ${res.descricao} foi cadastrada com sucesso!`
+      `A transacão ${res.transacao} foi cadastrada com sucesso!`
     );
 
     this.router.navigate(['/transacoes', 'listar']);

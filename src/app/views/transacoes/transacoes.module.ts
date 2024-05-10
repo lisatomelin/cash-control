@@ -15,11 +15,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { InserirTransacoesComponent } from './inserir-transacoes/inserir-transacoes.component';
 import { ListarTransacoesComponent } from './listar-transacoes/listar-transacoes.component';
 import { TransacoesService } from './transacoes.service';
-import { MatDatepickerModule } from '@angular/material/datepicker'
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
-  declarations: [InserirTransacoesComponent, ListarTransacoesComponent],
+  declarations: [InserirTransacoesComponent, ],
   imports: [
     CommonModule,    
     MatTableModule,

@@ -9,7 +9,7 @@
       <mat-icon class="ms-auto">arrow_circle_up</mat-icon>
     </mat-card-header>
     <mat-card-content>
-      <span class="fs-2"> R$ 0,00 </span>
+      <span class="fs-2"> {{ transactionsDatas.conta.entrada }}  </span>
     </mat-card-content>
   </mat-card>
 
@@ -19,7 +19,7 @@
       <mat-icon class="ms-auto">arrow_circle_down</mat-icon>
     </mat-card-header>
     <mat-card-content>
-      <span class="fs-2"> R$ 0,00 </span>
+      <span class="fs-2"> {{ transactionsDatas.conta.saida }} </span>
     </mat-card-content>
   </mat-card>
 
@@ -29,53 +29,10 @@
       <mat-icon class="ms-auto"> attach_money </mat-icon>
     </mat-card-header>
     <mat-card-content>
-      <span class="fs-2"> R$ 0,00 </span>
+      <span class="fs-2"> {{ transactionsDatas.conta.total }} </span>
     </mat-card-content>
   </mat-card>
 </div>
 
-<div class="container">
-  <div class="mostrar-mais" style="margin-top: 20px" align = "right">
-    <button mat-stroked-button color="accent">Mostrar mais</button>
-  </div>
+<app-listar-transacoes *ngIf="transactionsDatas" [transactionsDatasInput]="transactionsDatas.transacao"></app-listar-transacoes>
 
-  <div class="mat-elevation-z8" style="margin-top: 20px">
-    <table mat-table [dataSource]="transacoes">     
-
-      <ng-container matColumnDef="descricao">
-        <th mat-header-cell *matHeaderCellDef>Descrição</th>
-        <td mat-cell *matCellDef="let transacoes">{{ transacoes.descricao }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="preco">
-        <th mat-header-cell *matHeaderCellDef>Preço</th>
-        <td mat-cell *matCellDef="let transacoes">{{ transacoes.preco}}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="categoria">
-        <th mat-header-cell *matHeaderCellDef>Categoria</th>
-        <td mat-cell *matCellDef="let transacoes">{{ transacoes.categoria }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="dataTransacao">
-        <th mat-header-cell *matHeaderCellDef>Data Transação</th>
-        <td mat-cell *matCellDef="let transacoes">{{ transacoes.dataTransacao }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="tipoTransacao">
-        <th mat-header-cell *matHeaderCellDef>Tipo Transação</th>
-        <td mat-cell *matCellDef="let transacoes">{{ transacoes.tipoTransacao }}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-
-    <mat-paginator
-      [pageSizeOptions]="[10]"
-      showFirstLastButtons
-      aria-label="Select page of periodic elements"
-    >
-    </mat-paginator>
-  </div>
-</div>

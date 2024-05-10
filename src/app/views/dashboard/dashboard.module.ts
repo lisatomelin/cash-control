@@ -10,9 +10,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ListarTransacoesComponent } from '../transacoes/listar-transacoes/listar-transacoes.component';
+
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, ListarTransacoesComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -23,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatGridListModule,
     MatDialogModule,
+    
     
   ],
 })
