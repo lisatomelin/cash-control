@@ -22,7 +22,7 @@ export class InserirTransacoesComponent implements OnInit, OnDestroy {
   private dialogRefService = inject(MatDialogRef<DashboardComponent>);
   public tipoTransacaoEnum = TipoTransacao;
 
-  form?: FormGroup;
+  form: FormGroup;
 
 
   constructor(
