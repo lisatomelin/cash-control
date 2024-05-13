@@ -1,8 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { Transacoes } from '../transacoes/models/transacoes';
 import { MatDialog } from '@angular/material/dialog';
 import { InserirTransacoesComponent } from '../transacoes/inserir-transacoes/inserir-transacoes.component';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { TransacoesService } from '../transacoes/transacoes.service';
 
@@ -11,7 +11,8 @@ import { TransacoesService } from '../transacoes/transacoes.service';
   templateUrl: './dashboard.component.html',
   styleUrls: [],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
   private dialogService = inject(MatDialog);  
   transactionsDatas!: Transacoes;
   descricaoInicial = 'Salário';
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
   constructor(private transacoesService: TransacoesService){
     
   } 
-
+  
   ngOnInit(): void {
     this.getTransactionsDatas(this.descricaoInicial); 
     
@@ -41,4 +42,10 @@ export class DashboardComponent implements OnInit {
       maxHeight: '80vh',
     });
   }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
 }

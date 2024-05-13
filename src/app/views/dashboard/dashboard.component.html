@@ -2,14 +2,14 @@
   <button mat-raised-button color="accent" (click)="handleOpenModal()">Nova Transação</button>
 </div>
 
-<div class="row gap-3" align="center" style="padding-left: 20%">
+<div *ngIf="transactionsDatas" class="row gap-3" align="center" style="padding-left: 20%">
   <mat-card class="col-12 cold-md-6 col-lg-3 d-grid gap-2">
     <mat-card-header>
       <mat-card-title class="fs-6">Entradas</mat-card-title>
       <mat-icon class="ms-auto">arrow_circle_up</mat-icon>
     </mat-card-header>
     <mat-card-content>
-      <span class="fs-2"> {{ transactionsDatas.conta.entrada }}  </span>
+      <span class="fs-2"> {{ transactionsDatas.conta.entrada | currency: 'BRL'}}  </span>
     </mat-card-content>
   </mat-card>
 
@@ -19,7 +19,7 @@
       <mat-icon class="ms-auto">arrow_circle_down</mat-icon>
     </mat-card-header>
     <mat-card-content>
-      <span class="fs-2"> {{ transactionsDatas.conta.saida }} </span>
+      <span class="fs-2"> {{ transactionsDatas.conta.saida | currency: 'BRL'}} </span>
     </mat-card-content>
   </mat-card>
 
@@ -29,7 +29,7 @@
       <mat-icon class="ms-auto"> attach_money </mat-icon>
     </mat-card-header>
     <mat-card-content>
-      <span class="fs-2"> {{ transactionsDatas.conta.total }} </span>
+      <span class="fs-2"> {{ transactionsDatas.conta.total | currency: 'BRL' }} </span>
     </mat-card-content>
   </mat-card>
 </div>

@@ -13,12 +13,11 @@ import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { InserirTransacoesComponent } from './inserir-transacoes/inserir-transacoes.component';
-import { ListarTransacoesComponent } from './listar-transacoes/listar-transacoes.component';
 import { TransacoesService } from './transacoes.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
-  declarations: [InserirTransacoesComponent, ],
+  declarations: [InserirTransacoesComponent ],
   imports: [
     CommonModule,    
     MatTableModule,
@@ -36,6 +35,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule
     
    
   ],

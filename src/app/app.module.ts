@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,14 +12,13 @@ import { DashboardModule } from './views/dashboard/dashboard.module';
 import { provideHttpClient } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
+registerLocaleData(ptBr);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    
-    
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,9 +30,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDatepickerModule,
 
     CoreModule,
-    DashboardModule
+    DashboardModule,
   ],
-  providers: [provideHttpClient(), ],
-  bootstrap: [AppComponent]
+  providers: [
+    provideHttpClient(),
+    
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+
+    { provide: LOCALE_ID, useValue: 'pt' }
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
