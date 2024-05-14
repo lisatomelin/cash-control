@@ -11,9 +11,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let transacao of transactionsDatasInput">
+        <tr
+          *ngFor="
+            let transacao of transactionsDatasInput | sortByOrder | limitTo
+          "
+        >
           <td>{{ transacao.descricao }}</td>
-          <td>{{ transacao.preco | currency:'BRL'}}</td>
+          <td>{{ transacao.preco | currency : "BRL" }}</td>
           <td>{{ transacao.dataTransacao | date : "dd/MM/yyyy HH:mm:ss" }}</td>
           <td>{{ transacao.tipoTransacao }}</td>
           <td>{{ transacao.categoria }}</td>

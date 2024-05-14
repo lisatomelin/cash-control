@@ -15,6 +15,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
+
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -28,6 +29,7 @@ registerLocaleData(ptBr);
     MatCardModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    
 
     CoreModule,
     DashboardModule,

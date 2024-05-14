@@ -6,7 +6,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
@@ -15,11 +15,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { InserirTransacoesComponent } from './inserir-transacoes/inserir-transacoes.component';
 import { TransacoesService } from './transacoes.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSortModule } from '@angular/material/sort';
+import { SortByOrderPipe } from 'src/app/shared/pipes/sort-by-order.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [InserirTransacoesComponent ],
+  declarations: [InserirTransacoesComponent],
+
   imports: [
-    CommonModule,    
+    CommonModule,
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
@@ -35,10 +39,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
-    
-   
+    MatTableModule,
+    MatSortModule,
+    SharedModule,
   ],
-  providers: [TransacoesService]
+
+  providers: [TransacoesService],
 })
 export class TransacoesModule {}
