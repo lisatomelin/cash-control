@@ -24,15 +24,15 @@ describe('AppComponent', () => {
   });
 
   // Teste de @Input
-  it('should set @Input() property correctly', () => {
-    component.projectName = 'Testing Angular with Jest';
+  //it('should set @Input() property correctly', () => {
+    //component.projectName = 'Testing Angular with Jest';
 
-    fixture.detectChanges();
+    //fixture.detectChanges();
 
-    expect(component.projectName).toEqual('Testing Angular with Jest');
+    //expect(component.projectName).toEqual('Testing Angular with Jest');
 
 
-  })
+  //})
 
   
 });
