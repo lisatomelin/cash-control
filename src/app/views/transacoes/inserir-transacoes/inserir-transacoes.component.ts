@@ -4,7 +4,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { NotificationsService } from 'src/app/core/services/notifications.service';
+import { NotificationsService } from './../../../core/services/notifications.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { TransacoesService } from '../transacoes.service';
