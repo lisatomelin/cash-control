@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
-import { NotificationService } from '../notifications.service';
+import { NotificationsService } from '../notifications.service';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { NotificationService } from '../notifications.service';
         
       },
     },
-    NotificationService,
+    NotificationsService,
   ],
 })
 export class NotificationsModule { }

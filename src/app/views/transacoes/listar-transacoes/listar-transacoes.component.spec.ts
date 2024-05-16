@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListarTransacoesComponent } from './listar-transacoes.component';
+import { NotificationsService } from 'src/app/core/services/notifications.service';
 
 describe('ListarTransacoesComponent', () => {
   let component: ListarTransacoesComponent;
@@ -8,7 +9,8 @@ describe('ListarTransacoesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarTransacoesComponent ]
+      declarations: [ ListarTransacoesComponent ],
+      imports: [NotificationsService],
     })
     .compileComponents();
 

@@ -17,22 +17,22 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   // Teste de @Input
-  //it('should set @Input() property correctly', () => {
-    //component.projectName = 'Testing Angular with Jest';
+  it('should set @Input() property correctly', () => {
+    component.projectName = 'Testing Angular with Jest';
 
-    //fixture.detectChanges();
+    fixture.detectChanges();
 
-    //expect(component.projectName).toEqual('Testing Angular with Jest');
+    expect(component.projectName).toEqual('Testing Angular with Jest');
 
 
-  //})
+  })
 
   
 });

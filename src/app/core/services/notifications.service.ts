@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
-export class NotificationService{
+export class NotificationsService{
   constructor(private snackbar: MatSnackBar){}
 
   sucesso(mensagem: string): void {

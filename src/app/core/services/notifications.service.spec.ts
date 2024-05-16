@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { NotificationsService } from './notifications.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 describe('NotificationsService', () => {
   let service: NotificationsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [NotificationsService, MatSnackBar],
+    });
     service = TestBed.inject(NotificationsService);
   });
 

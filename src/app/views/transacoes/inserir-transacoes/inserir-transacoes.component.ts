@@ -4,7 +4,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { NotificationService } from 'src/app/core/services/notifications.service';
+import { NotificationsService } from 'src/app/core/services/notifications.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { TransacoesService } from '../transacoes.service';
@@ -27,7 +27,7 @@ export class InserirTransacoesComponent implements OnInit, OnDestroy {
 
   constructor(
     private transacoesService: TransacoesService,
-    private notification: NotificationService,
+    private notification: NotificationsService,
     private fb: FormBuilder,
     
   ) {}

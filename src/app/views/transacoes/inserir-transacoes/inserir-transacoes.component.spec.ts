@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InserirTransacoesComponent } from './inserir-transacoes.component';
+import { CoreModule } from 'src/app/core/core.module';
+import { NotificationsService } from 'src/app/core/services/notifications.service';
 
 describe('TransacoesFormsComponent', () => {
   let component: InserirTransacoesComponent;
@@ -8,7 +10,8 @@ describe('TransacoesFormsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InserirTransacoesComponent ]
+      declarations: [ InserirTransacoesComponent, NotificationsService ],
+      providers: [ CoreModule]
     })
     .compileComponents();
 
