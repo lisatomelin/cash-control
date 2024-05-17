@@ -9,12 +9,18 @@ import { Transacao } from '../models/transacoes';
 })
 export class ListarTransacoesComponent implements OnInit, OnDestroy {
   private readonly destroy$: Subject<void> = new Subject();
+  //numItensExibidos: number = 10;
+
 
   @Input() transactionsDatasInput: Transacao[];
 
   ngOnInit(): void {
     this.transactionsDatasInput;
   }
+
+  //mostrarMaisItens() {
+    //this.numItensExibidos += 10;
+  //}
 
   ngOnDestroy(): void {
     this.destroy$.next();

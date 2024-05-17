@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DashboardComponent } from './dashboard.component';
 import { NotificationsService } from './../../core/services/notifications.service';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TransacoesService } from '../transacoes/transacoes.service';
 import {
   MatDialogRef,
@@ -13,7 +12,6 @@ import {
 import { InjectionToken } from '@angular/core';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DIALOG_SCROLL_STRATEGY, Dialog } from '@angular/cdk/dialog';
-import { MatTestDialogOpenerModule } from '@angular/material/dialog/testing';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -22,11 +20,10 @@ describe('DashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardComponent],
+      imports: [HttpClientTestingModule],
       providers: [
         NotificationsService,
         TransacoesService,
-        HttpClient,
-        HttpHandler,
         MatDialog,
         Dialog,
         { provide: InjectionToken, useValue: [] },

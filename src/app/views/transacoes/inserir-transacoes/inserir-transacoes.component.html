@@ -36,8 +36,8 @@
         </div>
 
         <div class="text-center" style="margin-bottom: 5%;">
-          <button  type="submit" class="btn btn-primary mr-3" [disabled]="!form.valid">Salvar</button>
-          <button type="button" routerLink="/dashboard" class="btn btn-outline-danger" (click)="handleCloseModal()">Voltar</button>
+          <button  type="submit" mat-raised-button color="accent" class="btn btn-primary mr-3 " style="margin-right: 15px" [disabled]="!form.valid">Salvar</button>
+          <button type="button" mat-raised-button color="accent" routerLink="/dashboard" class="btn btn-outline-danger" (click)="handleCloseModal()">Voltar</button>
         </div>
       </form>      
     </div>
