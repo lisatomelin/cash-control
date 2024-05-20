@@ -1,10 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Transacao } from 'src/app/views/transacoes/models/transacoes';
 
 @Pipe({
   name: 'sortByOrder'
 })
 export class SortByOrderPipe implements PipeTransform {
-  transform(array: any[]): any[] {
+  transform(array: Transacao[]): Transacao[] {
     if (!array || array.length === 0) {
       return [];
     }

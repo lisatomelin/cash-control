@@ -11,7 +11,7 @@ export class LimitToPipe implements PipeTransform {
       return [];
     }
 
-    return array.slice(0, 20) ;
+    return array.slice(0, 50) ;
   }
 
 }
