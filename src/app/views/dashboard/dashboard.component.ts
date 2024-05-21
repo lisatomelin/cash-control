@@ -2,8 +2,7 @@ import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { Transacoes } from '../transacoes/models/transacoes';
 import { MatDialog } from '@angular/material/dialog';
 import { InserirTransacoesComponent } from '../transacoes/inserir-transacoes/inserir-transacoes.component';
-import { Observable, Subject, map } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 import { TransacoesService } from '../transacoes/transacoes.service';
 
 @Component({

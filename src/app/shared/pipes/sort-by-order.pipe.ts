@@ -11,6 +11,6 @@ export class SortByOrderPipe implements PipeTransform {
     }
 
     // Ordena o array pelo ID em ordem decrescente
-    return array.sort((a, b) => b.id - a.id);
+    return array.sort((a, b) => b.id - a.id) ;
   }
 }

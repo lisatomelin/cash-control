@@ -1,27 +1,48 @@
 <div class="table-container" style="margin-top: 3%">
-     <table>
-      <thead>
-        <tr>
-          <th>Descrição</th>
-          <th>Preço</th>
-          <th>Data de Transferência</th>
-          <th>Tipo de Transferência</th>
-          <th>Categoria</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          *ngFor="
-            let transacao of transactionsDatasInput | sortByOrder | limitTo
-          "
-        >
-          <td>{{ transacao.descricao }}</td>
-          <td>{{ transacao.preco | currency : "BRL" }}</td>
-          <td>{{ transacao.dataTransacao | date : "dd/MM/yyyy HH:mm:ss" }}</td>
-          <td>{{ transacao.tipoTransacao }}</td>
-          <td>{{ transacao.categoria }}</td>
-        </tr>
-      </tbody>
-    </table>   
+  <div>
+    <i
+      class="material-icons"
+      style="cursor: pointer; margin-left: 30%"
+      (click)="ordenarCrescente()"
+      >arrow_upward</i
+    >
+    <i class="material-icons" style="cursor: pointer" (click)="ordenarDecrescente()">arrow_downward</i>
+  </div>
+  <div>
+    <button
+      mat-raised-button
+      color="accent"
+      style="margin-left: 60%; margin-bottom: 20px"
+      (click)="mostrarMaisItens()"
+    >
+      Mostrar Mais
+    </button>
   </div>
 
+  <table>
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Data Transferência</th>
+        <th>Tipo de Transferência</th>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let transacao of transactionsDatasInput
+            | slice : 0 : totalItemsDisplayed
+            
+        "
+      >
+        <td>{{ transacao.descricao }}</td>
+        <td>{{ transacao.preco | currency : "BRL" }}</td>
+        <td>{{ transacao.dataTransacao | date : "dd/MM/yyyy HH:mm:ss" }}</td>
+        <td>{{ transacao.tipoTransacao }}</td>
+        <td>{{ transacao.categoria }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

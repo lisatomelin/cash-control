@@ -14,6 +14,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 
 registerLocaleData(ptBr);
@@ -29,6 +30,7 @@ registerLocaleData(ptBr);
     MatCardModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatIconModule,
     
 
     CoreModule,

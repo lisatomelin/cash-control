@@ -6,6 +6,7 @@ import { NotificationsService } from './../../../core/services/notifications.ser
 
 import { LimitToPipe } from './../../../shared/pipes/limit-to.pipe';
 import { SortByOrderPipe } from './../../../shared/pipes/sort-by-order.pipe';
+import { SlicePipe } from '@angular/common';
 
 
 describe('ListarTransacoesComponent', () => {
@@ -15,6 +16,7 @@ describe('ListarTransacoesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ListarTransacoesComponent, LimitToPipe, SortByOrderPipe],
+      imports: [SlicePipe],
       providers: [NotificationsService, LimitToPipe, SortByOrderPipe]
     }).compileComponents();
   });
