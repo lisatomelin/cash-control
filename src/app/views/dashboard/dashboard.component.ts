@@ -2,7 +2,7 @@ import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { Transacoes } from '../transacoes/models/transacoes';
 import { MatDialog } from '@angular/material/dialog';
 import { InserirTransacoesComponent } from '../transacoes/inserir-transacoes/inserir-transacoes.component';
-import { Subject } from 'rxjs';
+import { Subject, timer } from 'rxjs';
 import { TransacoesService } from '../transacoes/transacoes.service';
 
 @Component({
@@ -12,20 +12,16 @@ import { TransacoesService } from '../transacoes/transacoes.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
-  private dialogService = inject(MatDialog);  
+  private dialogService = inject(MatDialog);
   transactionsDatas!: Transacoes;
-  descricaoInicial = 'Salário';
 
-  constructor(private transacoesService: TransacoesService){
-    
-  } 
-  
+  constructor(private transacoesService: TransacoesService) {}
+
   ngOnInit(): void {
-    this.getTransactionsDatas(this.descricaoInicial); 
-    
+    this.getTransactionsDatas();
   }
 
-  getTransactionsDatas(transactionsDatas: string): void {
+  getTransactionsDatas(): void {
     this.transacoesService.getTransactionsDatas().subscribe({
       next: (response) => {
         response && (this.transactionsDatas = response);
@@ -36,9 +32,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public handleOpenModal(): void {
-    this.dialogService.open(InserirTransacoesComponent, {
+    const dialogRef = this.dialogService.open(InserirTransacoesComponent, {
       width: '50vw',
       maxHeight: '80vh',
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      timer(500).subscribe(() => this.getTransactionsDatas());
     });
   }
 
@@ -46,5 +46,4 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
-
 }

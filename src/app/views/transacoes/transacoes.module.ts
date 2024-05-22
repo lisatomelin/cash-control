@@ -18,6 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSortModule } from '@angular/material/sort';
 import { SortByOrderPipe } from 'src/app/shared/pipes/sort-by-order.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [InserirTransacoesComponent],
@@ -41,6 +42,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatNativeDateModule,
     MatTableModule,
     MatSortModule,
+    MatDialogModule,
     SharedModule,
   ],
 
