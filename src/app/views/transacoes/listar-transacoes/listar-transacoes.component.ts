@@ -9,7 +9,7 @@ import { Transacao } from '../models/transacoes';
   templateUrl: './listar-transacoes.component.html',
   styleUrls: ['./listar-transacoes.component.scss'],
 })
-export class ListarTransacoesComponent implements OnInit, OnDestroy {
+export class ListarTransacoesComponent implements OnInit {
   @Input() transactionsDatasInput: Transacao[];
   private readonly destroy$: Subject<void> = new Subject();
 
@@ -32,8 +32,5 @@ export class ListarTransacoesComponent implements OnInit, OnDestroy {
     this.transactionsDatasInput.sort((a,b) => a.id - b.id);
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+ 
 }

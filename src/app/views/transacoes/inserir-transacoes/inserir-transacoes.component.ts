@@ -1,36 +1,30 @@
 import {
   Component,
-  EventEmitter,
-  OnDestroy,
   OnInit,
-  inject,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from './../../../core/services/notifications.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { TransacoesService } from '../transacoes.service';
 import { Transacao } from '../models/transacoes';
 import { TipoTransacao } from '../models/tipoTransacao';
-import { Subject } from 'rxjs';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-transacoes',
   templateUrl: './inserir-transacoes.component.html',
   styleUrls: ['./inserir-transacoes.component.scss'],
 })
-export class InserirTransacoesComponent implements OnInit, OnDestroy {
-  private readonly destroy$: Subject<void> = new Subject();
-  private dialogRefService = inject(MatDialogRef<DashboardComponent>);
-  public tipoTransacaoEnum = TipoTransacao;
-  transacaoAdicionada = new EventEmitter<Transacao>();
-
+export class InserirTransacoesComponent implements OnInit {
+  
+  tipoTransacaoEnum = TipoTransacao;
   form: FormGroup;
 
   constructor(
     private transacoesService: TransacoesService,
     private notification: NotificationsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef <InserirTransacoesComponent>
   ) {}
 
   ngOnInit(): void {
@@ -41,33 +35,32 @@ export class InserirTransacoesComponent implements OnInit, OnDestroy {
       categoria: ['', [Validators.required]],
     });
   }
+
   gravar(): void {
     const precoControl = this.form?.get('preco');
     precoControl?.setValue(Number(precoControl.value));
 
-    this.transacoesService.criar(this.form?.value).subscribe({
-      next: (res) => this.processarSucesso(res),
-      error: (err) => this.processarFalha(err),
-    });
+    this.transacoesService.criar(this.form?.value)
+      .pipe(take(1))
+      .subscribe({
+        next: (res) => this.processarSucesso(res),
+        error: (err) => this.processarFalha(err),
+      });
   }
 
   processarSucesso(res: Transacao) {
     this.notification.sucesso(`A transacão foi cadastrada com sucesso!`);
-    this.transacaoAdicionada.emit(res);
-
-    this.dialogRefService.close();
+    
+    this.handleCloseModal(!!res);
   }
 
   processarFalha(err: any) {
     this.notification.erro(err.message);
   }
 
-  public handleCloseModal(): void {
-    this.dialogRefService.close();
+  handleCloseModal(transacaoAdicionada: boolean = false): void {
+    this.dialogRef.close(transacaoAdicionada);
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+ 
 }
